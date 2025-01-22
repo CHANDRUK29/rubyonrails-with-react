@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   #creating question routes (like api/v1/questions is the route here declared)
   namespace :api do
     namespace :v1 do
-      resources :questions, only: [:index] do
+      resources :questions, only: [:index, :create] do
         member do
           put :updateCount   #(api/v1/questions/id/updateCount is route. here we are declaring another route for updating the count. updateCount is the method available in controller)
         end

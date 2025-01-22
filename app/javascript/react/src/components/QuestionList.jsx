@@ -3,6 +3,7 @@ import QuestionDetails from './QuestionDetails'
 import axios from 'axios';
 import ErrorMessage from './ErrorMessage';
 import Loader from './Loader';
+import NewQuestion from './NewQuestion';
 
 const QuestionList = () => {
 
@@ -61,6 +62,9 @@ const QuestionList = () => {
         <div className="row">
             <div className="col-lg-10 mx-auto">
                 <p className='lead fw-bold'>Filtering Questions By Tags</p>
+                <button type="button" className="btn btn-primary mt-3 mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    Create New Question
+                </button>
                 <select className='form-select form-select-lg' value={selectedOption} onChange={(event) => handleSelectOption(event)}>
                     {tagsList.map((listValue) => (
                         <option key={listValue.value} value={listValue.value}>{listValue.label}</option>
@@ -74,7 +78,7 @@ const QuestionList = () => {
                 }
 
                 {isShowAlert && <ErrorMessage tagName={tagsList[selectedOption].label} />}
-
+                <NewQuestion/>
             </div>
         </div>
     )
